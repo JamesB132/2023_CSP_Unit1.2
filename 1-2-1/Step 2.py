@@ -30,7 +30,7 @@ player_name = input("What is your name?")
 
 trgt = trtl.Turtle()
 trgt.speed(100)
-trgt.color(trgt_color)
+trgt.fillcolor(trgt_color)
 trgt.shapesize(trgt_size)
 trgt.shape(trgt_shape)
 
