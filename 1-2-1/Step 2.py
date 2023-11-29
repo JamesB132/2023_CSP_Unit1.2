@@ -23,7 +23,7 @@ counter_interval = 1000   #1000 represents 1 second
 timer_up = False
 
 leaderboard_file_name = "a122_leaderboard.txt"
-player_name = input("What is your name?")
+player_name = input("What is your name? ")
 
 #-----initialize turtle-----
 
