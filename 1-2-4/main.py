@@ -9,44 +9,45 @@ Loop:
     go forward x + y
     turn left 90 degrees
 '''
+randomnum = 0
 ds = 0
-ds = 0
+bs = 0
 trtl.speed(0)
-x = 15
-y = 5
+path_width = 15
+wall_length = 5
 trtl.left(90)
 trtl.width(6)
 iteration = 0
 def Door():
-    global ds
-    trtl.forward(ds)
+    global ds, path_width
+    trtl.forward(10)
     trtl.penup()
-    trtl.forward(x * 3)
+    trtl.forward(path_width * 3)
     trtl.pendown()
-
 def Barrier():
-    global bs
-    trtl.forward(br)
+    global bs, path_width
+    trtl.forward(40)
     trtl.left(90)
-    trtl.forward(x * 2.5)
-    trtl.back(x * 2.5)
+    trtl.forward(path_width * 2.5)
+    trtl.back(path_width * 2.5)
     trtl.right(90)
-
-
 def Spiral():
-    global x, y, iteration, ds, bs
+    global path_width, wall_length, iteration, ds, bs, randomnum
     for spirals in range(25):
-        ds = rand.randint(x * 2, (y - x * 2))
-        bs = rand.randint(x * 2, (y - x * 2))
         trtl.penup()
         if iteration > 3:
             trtl.pendown()
-        Door()
-        Barrier()
-        trtl.forward(x + y)
+        randomnum = rand.randint(0,1)
+        if randomnum == 0:
+            Door()
+            Barrier()
+        if randomnum == 1:
+            Barrier()
+            Door()
+        trtl.forward(path_width + wall_length)
         trtl.left(90)
-        y += 20
-        iteration += 1
+        wall_length += 20
+        iteration += wall_length
     trtl.hideturtle()
 Spiral()
 
